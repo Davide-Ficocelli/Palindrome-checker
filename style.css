@@ -1,0 +1,16 @@
+body {
+  margin: 1rem;
+}
+
+.palindrome-result {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.is-palindrome {
+  color: green;
+}
+
+.not-palindrome {
+  color: red;
+}
