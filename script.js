@@ -6,21 +6,30 @@ const submitBtn = document.querySelector(".submit-button");
 const form = document.querySelector(".input-form");
 
 // Functions
+const renderErrElement = (msg) => {
+  return `<p class="error-msg">${msg}</p>`;
+};
 
 // Input formatting function
 function checkForPalindrome(input) {
-  // Guard clauses
-
-  // Providing an error if no input is provided
-  if (!input) throw "No input provided, please provide a string input";
-
-  // Providing an error if input is provided and is not a string
-  if (typeof input !== "string") throw "Input must be a string";
-
-  // Removing the previous result if present
+  // Selecting previous palidrome results and error message elements
   const previousResult = document.querySelector(".palindrome-result");
+  const previousError = document.querySelector(".error-msg");
 
+  // Rendering an error and stopping execution if no input is provided
+  if (input.length < 1) {
+    // Remove any previous errors if present
+    if (previousError) previousError.remove();
+
+    return submitBtn.insertAdjacentHTML(
+      "afterend",
+      renderErrElement("Please provide an input")
+    );
+  }
+
+  // Removing the previous palidrome results and error message elements if present
   if (previousResult) previousResult.remove();
+  if (previousError && input.length >= 1) previousError.remove();
 
   // Removing punctialization and spaces
   const formattedInput = input
@@ -47,7 +56,7 @@ function checkForPalindrome(input) {
   form.insertAdjacentHTML("afterend", markup);
 }
 
-// Implement the check button functionality
+// Implement the check button interaction
 submitBtn.addEventListener("click" || "submit", function (e) {
   e.preventDefault();
   checkForPalindrome(userInput.value);
