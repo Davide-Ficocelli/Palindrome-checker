@@ -46,6 +46,7 @@ function checkForPalindrome(input) {
   const resultMsg = isPalindrome
     ? "It IS a palindrome"
     : "It is NOT a palindrome";
+  // free
 
   const markup = `
     <div class="palindrome-result ${
