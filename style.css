@@ -8,9 +8,9 @@ body {
 }
 
 .is-palindrome {
-  color: green;
+  color: rgb(20, 184, 61);
 }
 
 .not-palindrome {
-  color: red;
+  color: rgb(255, 0, 0);
 }

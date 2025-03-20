@@ -8,13 +8,19 @@ const form = document.querySelector(".input-form");
 // Functions
 
 // Input formatting function
-function formatInput(input) {
+function checkForPalindrome(input) {
   // Guard clauses
+
   // Providing an error if no input is provided
   if (!input) throw "No input provided, please provide a string input";
 
   // Providing an error if input is provided and is not a string
   if (typeof input !== "string") throw "Input must be a string";
+
+  // Removing the previous result if present
+  const previousResult = document.querySelector(".palindrome-result");
+
+  if (previousResult) previousResult.remove();
 
   // Removing punctialization and spaces
   const formattedInput = input
@@ -41,4 +47,8 @@ function formatInput(input) {
   form.insertAdjacentHTML("afterend", markup);
 }
 
-formatInput("test");
+// Implement the check button functionality
+submitBtn.addEventListener("click" || "submit", function (e) {
+  e.preventDefault();
+  checkForPalindrome(userInput.value);
+});
