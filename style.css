@@ -1,16 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin: 1rem;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #f4f4f4; /* Light grey background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+  padding: 1rem; /* Add some padding around the main content for smaller screens */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem; /* Base padding for smaller screens */
+  background-color: #ffffff; /* White background for the main content */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%; /* Take full width on mobile */
+  max-width: 600px; /* Limits the width of the main content on larger screens */
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem; /* Smaller base font size for mobile */
+  color: #333; /* Darker color for heading */
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 0.9rem; /* Smaller base font size for paragraphs */
+  color: #555; /* Slightly lighter color for paragraphs */
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+ul {
+  text-align: left; /* Aligns the list items to the left */
+  align-self: flex-start; /* Aligns the list to the start of the main container */
+  list-style-type: disc; /* Default disc bullet points */
+  padding-left: 20px; /* Adds some padding for the bullet points */
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: 0.9rem; /* Smaller base font size for list items */
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column; /* Stacks input and button vertically */
+  gap: 1rem; /* Space between input and button */
+  width: 100%;
+  max-width: 300px; /* Limits the width of the form elements on larger screens */
+  margin-bottom: 1.5rem;
+}
+
+.user-input {
+  padding: 0.7rem 1rem; /* Smaller padding for mobile input */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem; /* Smaller font size for mobile input */
+  width: 100%;
+}
+
+.user-input:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight border on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.submit-button {
+  padding: 0.7rem 1.5rem; /* Smaller padding for mobile button */
+  background-color: #007bff; /* Primary blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem; /* Smaller font size for mobile button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 .palindrome-result {
-  font-size: 1.5rem;
-  margin-top: 1rem;
+  font-size: 1.1rem; /* Smaller base font size for result message */
+  padding: 0.8rem; /* Smaller padding for result message */
+  border-radius: 8px;
+  margin-top: 1.5rem; /* Space above the result message */
+  width: 100%;
+  max-width: 400px; /* Limits the width of the result message on larger screens */
+}
+
+.is-palindrome,
+.not-palindrome,
+.error-msg {
+  font-weight: 700;
 }
 
 .is-palindrome {
-  color: rgb(20, 184, 61);
+  color: #14b83d; /* Green for success */
+  background-color: #e6ffe6; /* Light green background */
+  border: 1px solid #14b83d;
 }
 
 .not-palindrome {
-  color: rgb(255, 0, 0);
+  color: #ff0000; /* Red for failure */
+  background-color: #ffe6e6; /* Light red background */
+  border: 1px solid #ff0000;
+}
+
+.error-msg {
+  color: #ff0000;
+  font-size: 1.1rem; /* Base font size for error message */
+  margin-top: 1rem;
+}
+
+/* --- Media Queries for Larger Screens (Mobile-First) --- */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem; /* Larger font size for tablets */
+  }
+
+  p {
+    font-size: 1rem; /* Larger font size for paragraphs */
+  }
+
+  ul {
+    font-size: 1rem; /* Larger font size for list items */
+  }
+
+  .user-input,
+  .submit-button {
+    font-size: 1rem; /* Larger font size for form elements */
+    padding: 0.8rem 1.5rem; /* Larger padding for form elements */
+  }
+
+  .palindrome-result {
+    font-size: 1.3rem; /* Larger font size for result message */
+    padding: 1rem; /* Larger padding for result message */
+  }
+
+  .error-msg {
+    font-size: 1.2rem; /* Larger font size for error message */
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3rem; /* Even larger font size for desktops */
+  }
+
+  main {
+    padding: 2rem; /* More padding for main content on desktops */
+  }
+
+  .palindrome-result {
+    font-size: 1.5rem; /* Even larger font size for result message */
+  }
 }
